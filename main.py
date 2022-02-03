@@ -1,7 +1,7 @@
 from sanic import Sanic
 from sanic.response import json
 
-app = Sanic('A HTTP interaction based image manipulation bot.')
+app = Sanic('idk')
 
 @app.route('/')
 async def handler(r):
