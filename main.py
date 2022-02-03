@@ -7,5 +7,5 @@ app = Sanic('idk')
 async def handler(r):
     return json({'type':1})
 
-if __name__ = '__main__':
+if __name__ == '__main__':
     app.run()
