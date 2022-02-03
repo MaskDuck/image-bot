@@ -1,13 +1,8 @@
-from starlette.applications import Starlette
-from starlette.routing import Route
-import uvicorn
+from sanic import Sanic
+from sanic.response import json
 
-from app import ping
+app = Sanic('A HTTP interaction based image manipulation bot.')
 
-routes = [Route('/', ping, methods=['POST'])]
-
-
-app = Starlette(routes=routes)
-if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", port=80, log_level="info")
-
+@app.route('/')
+async def handler(r):
+    return json({type:1})
