@@ -5,4 +5,4 @@ app = Sanic('idk')
 
 @app.route('/')
 async def handler(r):
-    return json({type:1})
+    return json({'type':1})
