@@ -13,7 +13,7 @@ async def handler(r):
     timestamp = r.headers["X-Signature-Timestamp"]
     body = r.head.decode('utf-8')
     try:
-        verify_key.verify(f'{timestamp}{}'.encode(), bytes.fromhex(signature))
+        verify_key.verify(f'{timestamp}{body}'.encode(), bytes.fromhex(signature))
         return json({"type": 1})
     except:
         return HTTPResponse(status=401)
