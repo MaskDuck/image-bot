@@ -13,7 +13,9 @@ app.config["DISCORD_CLIENT_SECRET"] = os.environ["DISCORD_CLIENT_SECRET"]
 def ping(ctx):
     return "Pong!"
 
-discord.set_route("/")
+discord.set_route("/interaction")
+
+discord.update_commands(guild_id=None)
 
 if __name__ == '__main__':
     app.run()
