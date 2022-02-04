@@ -6,13 +6,13 @@ from nacl.exceptions import BadSignatureError
 import os
 
 app = Sanic('idk')
-PUBLIC_KEY = 'f964c9bf508247bce404a6d6069fb494fc56b276954253389723301bfe503f58`'
+PUBLIC_KEY = 'f964c9bf508247bce404a6d6069fb494fc56b276954253389723301bfe503f58'
 @app.route('/', methods=["POST"])
 async def handler(r):
     verify_key = VerifyKey(bytes.fromhex(PUBLIC_KEY))
     signature = r.headers["X-Signature-Ed25519"]
     timestamp = r.headers["X-Signature-Timestamp"]
-    body = r.url_bytes.decode('utf-8')
+    body = r.body.decode('utf-8')
     try:
         verify_key.verify(f'{timestamp}{body_decode}'.encode(), bytes.fromhex(signature))
         return json({"type": 1})
