@@ -14,8 +14,7 @@ def ping(ctx):
     return "Pong!"
 
 discord.set_route("/interaction")
-
 discord.update_commands()
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run()
