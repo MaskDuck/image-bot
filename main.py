@@ -1,4 +1,3 @@
-from email.quoprimime import body_decode
 from sanic import Sanic
 from sanic.response import json, HTTPResponse
 from nacl.signing import VerifyKey
@@ -14,7 +13,7 @@ async def handler(r):
     timestamp = r.headers["X-Signature-Timestamp"]
     body = r.body.decode('utf-8')
     try:
-        verify_key.verify(f'{timestamp}{body_decode}'.encode(), bytes.fromhex(signature))
+        verify_key.verify(f'{timestamp}{body}'.encode(), bytes.fromhex(signature))
         return json({"type": 1})
     except:
         return HTTPResponse(status=401)
