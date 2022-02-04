@@ -15,7 +15,7 @@ def ping(ctx):
 
 discord.set_route("/interaction")
 
-discord.update_commands(guild_id=None)
+discord.update_commands()
 
 if __name__ == '__main__':
     app.run()
