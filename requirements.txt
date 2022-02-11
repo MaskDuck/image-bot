@@ -1,2 +1,0 @@
-Flask-Discord-Interactions >= 1.2.0
-flask >= 1.0.0
